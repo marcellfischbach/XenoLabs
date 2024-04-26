@@ -30,6 +30,10 @@
             <artifactId>XenoEngine-OpenGL</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.xenolabs</groupId>
+            <artifactId>XenoEngine-Swing</artifactId>
+        </dependency>
     </dependencies>
 
 
