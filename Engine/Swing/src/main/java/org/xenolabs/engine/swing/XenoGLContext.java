@@ -2,7 +2,7 @@ package org.xenolabs.engine.swing;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-public class XenoContext {
+public class XenoGLContext {
 
     private long wnd;
 
@@ -25,6 +25,8 @@ public class XenoContext {
         glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 4);
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
+        glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
+
         this.wnd = glfwCreateWindow(100, 100, "", 0, 0);
         glfwMakeContextCurrent(this.wnd);
         glfwSwapInterval(0);
@@ -36,15 +38,15 @@ public class XenoContext {
         glfwMakeContextCurrent(this.wnd);
     }
 
-    private XenoContext() {
+    private XenoGLContext() {
         createContext ();
     }
 
-    private static XenoContext instance = null;
+    private static XenoGLContext instance = null;
 
-    public static XenoContext instance() {
+    public static XenoGLContext instance() {
         if (instance == null) {
-            instance = new XenoContext();
+            instance = new XenoGLContext();
         }
         return instance;
     }
