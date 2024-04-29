@@ -1,16 +1,14 @@
-package org.xenolabs.engine.glfw.window;
-
-import static org.lwjgl.glfw.GLFW.*;
+package org.xeno.engine.glfw.window;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.xeno.engine.core.resource.ResourceLocator;
 import org.xeno.engine.core.resource.VFS;
 import org.xeno.engine.core.window.IWindow;
 
-import java.io.File;
 import java.io.InputStream;
+
+import static org.lwjgl.glfw.GLFW.*;
 
 public class WindowGLFW implements IWindow {
 
@@ -28,6 +26,8 @@ public class WindowGLFW implements IWindow {
 
     public boolean initialize () {
         try {
+            glfwInit();
+
             InputStream stream = VFS.instance().open("window.config");
             ObjectMapper OM = new ObjectMapper();
             WindowConfig windowConfig = OM.readValue(stream, WindowConfig.class);
@@ -44,7 +44,6 @@ public class WindowGLFW implements IWindow {
     }
 
     public void show () {
-        glfwInit();
 
         glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
         glfwWindowHint(GLFW_DECORATED, GLFW_TRUE);

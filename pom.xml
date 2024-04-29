@@ -10,10 +10,10 @@
     <packaging>pom</packaging>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <maven.compiler.source>22</maven.compiler.source>
+        <maven.compiler.target>22</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <lwjgl.version>3.3.2</lwjgl.version>
+        <lwjgl.version>3.3.3</lwjgl.version>
         <lwjgl.natives>natives-windows</lwjgl.natives>
     </properties>
 
@@ -64,6 +64,12 @@
                 <version>${lwjgl.version}</version>
                 <scope>import</scope>
                 <type>pom</type>
+            </dependency>
+
+            <dependency>
+                <groupId>org.lwjglx</groupId>
+                <artifactId>lwjgl3-awt</artifactId>
+                <version>0.1.8</version>
             </dependency>
 
 

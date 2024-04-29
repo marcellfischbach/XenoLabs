@@ -4,7 +4,7 @@ import org.xeno.engine.core.Engine;
 
 import java.util.Set;
 
-public class CoreModule implements IModule {
+public class ModuleCore implements IModule {
 
     @Override
     public Set<Class<?>> declaringTypes() {
@@ -17,8 +17,8 @@ public class CoreModule implements IModule {
     }
 
     @Override
-    public boolean initialize(Engine engine) {
+    public boolean initialize(Engine engine, String[] args) {
 
-        return false;
+        return true;
     }
 }

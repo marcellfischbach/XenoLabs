@@ -10,6 +10,6 @@ public interface IModule {
 
     Set<Class<?>> dependencies ();
 
-    boolean initialize (Engine engine);
+    boolean initialize (Engine engine, String[] args);
 
 }

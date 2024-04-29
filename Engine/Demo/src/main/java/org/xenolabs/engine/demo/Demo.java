@@ -2,16 +2,30 @@ package org.xenolabs.engine.demo;
 
 import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GL40;
+import org.xeno.engine.core.Engine;
 import org.xeno.engine.core.resource.ResourceLocator;
 import org.xeno.engine.core.resource.VFS;
-import org.xenolabs.engine.glfw.window.WindowGLFW;
+import org.xeno.engine.glfw.window.WindowGLFW;
+import org.xenolabs.engine.swing.XenoGLCanvas;
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.InputStream;
 
 public class Demo {
 
 
     private static void mainGLFW(String[] args) {
+
+
+        Engine engine = Engine.instance();
+        if (engine.initialize(args)) {
+
+            engine.run();
+        }
+    }
+
+    private void narf () {
 
         VFS.instance().initialize(Demo.class.getResourceAsStream("/vfs.config"));
 
@@ -27,6 +41,7 @@ public class Demo {
         catch (Exception e) {
 
         }
+
 
 
         WindowGLFW window = new WindowGLFW();
@@ -45,6 +60,17 @@ public class Demo {
 
             window.swap();
         }
+    }
+
+    private static void mainSwing (String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            JFrame frame = new JFrame();
+            frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            frame.setLayout(new BorderLayout());
+            frame.add(new XenoGLCanvas(), BorderLayout.CENTER);
+            frame.setSize(1024, 768);
+            frame.setVisible(true);
+        });
     }
 
 

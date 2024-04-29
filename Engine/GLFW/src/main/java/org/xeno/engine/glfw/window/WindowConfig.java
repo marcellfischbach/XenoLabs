@@ -1,4 +1,4 @@
-package org.xenolabs.engine.glfw.window;
+package org.xeno.engine.glfw.window;
 
 public class WindowConfig {
 
